@@ -1,0 +1,6 @@
+.idea
+model_data.json
+scaler.json
+.ipynb_checkpoints
+*.ipynb
+__pycache__
