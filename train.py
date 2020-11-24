@@ -2,7 +2,7 @@
 from model import MyLinearRegression, Scaler
 import csv
 from utils import mserror, maerror, r2
-from config import DATA_PATH, MODEL_DATA_PATH, NUM_TARGET_COLUMN, SCALER_DATA_PATH
+from config import DATA_PATH, MODEL_DATA_PATH, NUM_TARGET_COLUMN, SCALER_DATA_PATH, MAX_ITER, ETA
 import argparse
 
 
@@ -46,11 +46,6 @@ def plot_data(X, y, model, scaler):
 
 
 def main(args):
-    if not args.filename_data:
-        args.filename_data = DATA_PATH
-
-    if not args.num_target_column:
-        args.num_target_column = NUM_TARGET_COLUMN
 
     lin_reg = MyLinearRegression()
     scaler = Scaler()
@@ -75,13 +70,15 @@ if __name__ == "__main__":
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--plot', '-p', dest='plot', action='store_true', help='plot mode')
     parser.add_argument('--metrics', '-m', dest='metric', action='store_true', help='calculate metrics')
-    parser.add_argument('--filename_data', '-f', dest='filename_data', action='store', help='input data file')
+    parser.add_argument('--filename_data', '-f', dest='filename_data', action='store', help='input data file',
+                        default=DATA_PATH)
     parser.add_argument('--num_target_column', '-n', dest='num_target_column', action='store',
-                        help='target column number', default=-1)
+                        help='target column number', default=NUM_TARGET_COLUMN)
     parser.add_argument('--gradient_mode', '-g', dest='gradient_mode', action='store', help='gradient mode',
                         choices={'full', 'stochastic'}, default='stochastic')
-    parser.add_argument('--max_iter', '-i', dest='max_iter', action='store', help='max iter steps', type=float)
-    parser.add_argument('--eta', '-e', dest='eta', action='store', help='eta', type=float)
+    parser.add_argument('--max_iter', '-i', dest='max_iter', action='store', help='max iter steps', type=int,
+                        default=MAX_ITER)
+    parser.add_argument('--eta', '-e', dest='eta', action='store', help='eta', type=float, default=ETA)
 
     arguments = parser.parse_args()
     main(arguments)

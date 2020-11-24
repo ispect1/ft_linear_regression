@@ -1,6 +1,7 @@
 import json
 import random
 from utils import dot, vectors_diff, mean, std
+from config import ETA, MAX_ITER
 
 
 class Saver:
@@ -56,14 +57,8 @@ class MyLinearRegression(Saver):
                     for feature_idx in range(len(X[0]))]
         return vectors_diff(w, gradient)
 
-    def fit(self, X, y, eta=None, max_iter=None, max_weight_dist=None, seed=21, mode='stochastic'):
+    def fit(self, X, y, eta=ETA, max_iter=MAX_ITER, max_weight_dist=None, seed=21, mode='stochastic'):
         assert mode in ('full', 'stochastic')
-        if mode == 'full':
-            max_iter = max_iter or 1e2
-            eta = eta or 1
-        else:
-            max_iter = max_iter or 1e5
-            eta = eta or 0.01
         max_weight_dist = max_weight_dist or 1e-6
         X_ = list(map(lambda x: [1, *x], X))
         # Инициализируем расстояние между векторами весов на соседних
