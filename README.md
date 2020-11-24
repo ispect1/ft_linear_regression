@@ -61,3 +61,10 @@ optional arguments:
 ./train.py -m -f=boston.csv
 ./predict.py 0.02731,0.0,7.07,0.0,0.469,6.421,78.9,4.9671,2.0,242.0,17.8,396.9,9.14
 ```  
+
+## Data
+__data.csv__ - Dependence of the rates of the car mileage (km.)
+
+__weights_heights.csv__ -  Dependence of the weight from human height (inc.)
+
+__boston.csv__ - Dependence of housing prices on a variety of indicators
