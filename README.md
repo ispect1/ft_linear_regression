@@ -1,6 +1,6 @@
 # My first linear regression (no)
 
-git
+## Before start
 `python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt`
 
 ## Description
