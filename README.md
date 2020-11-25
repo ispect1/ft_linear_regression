@@ -1,6 +1,7 @@
 # My first linear regression (no)
 
-`python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt` - before start
+git
+`python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt`
 
 ## Description
 Native linear regression without using third party libraries (only matplotlib for plotting). Supports full and stochastic gradient descent method, calculation of basic regression metrics, visualization for two-dimensional case, CSV parsing. Support for multiple real features and multiple predicts has been implemented.
